@@ -1,0 +1,28 @@
+services:
+  webui:
+    build: ./services/webui/
+    profiles: ["webui"]
+    networks:
+      - webui-net
+    restart: always
+    container_name: sd-intel-webui
+    ports:
+      - "7860:7860"
+    volumes:
+      - "./models:/stable-diffusion-webui/models"
+      - "./extensions:/stable-diffusion-webui/extensions"
+      - "./outputs:/stable-diffusion-webui/outputs"
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
+      - /dev/dri/card0:/dev/dri/card0
+    environment:
+      - CLI_ARGS=--allow-code --enable-insecure-extension-access
+
+  download:
+    build: ./services/download/
+    profiles: ["download"]
+    volumes:
+      - "./models:/stable-diffusion-webui/models"
+networks:
+  webui-net:
+
