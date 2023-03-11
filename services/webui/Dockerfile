@@ -13,6 +13,9 @@ COPY ./setup.sh /
 RUN git clone https://github.com/jbaboval/stable-diffusion-webui.git
 WORKDIR stable-diffusion-webui
 RUN git checkout oneapi
+RUN mkdir /config \
+  && touch /config/config.json \
+  && ln -s /config/config.json config.json
 RUN bash /setup.sh
 COPY ./start.sh /
 RUN chmod +x /start.sh
