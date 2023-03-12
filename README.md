@@ -16,12 +16,12 @@ set-up steps below:
 ## Setup
 - Clone this repository and cd:
 
-  ```
+```
  git clone https://github.com/theunpleasantowl/stable-diffusion-docker-webui-intel.git
  cd stable-diffusion-docker-webui-intel
  docker-compose up download -d      # Required once to set up some models and directories
  docker-compose up webui            # Build the container and run the WebUI
- ```
+```
 - Reach the webUI by navigating your browser to `localhost:7860`
 
 ## ENV Variables
