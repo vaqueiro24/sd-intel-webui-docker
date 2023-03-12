@@ -1,21 +1,31 @@
-# sd-intel-webui-docker
-Easy Docker setup for Stable Diffusion with user-friendly UI and Intel GPUs
+# intel-stable-diffusion-webui-docker
 
-And yes, this container isn't pretty looking but it got me from point A to point B. If you look at the code and notice that I did something redundant, or outright wrong, then thats probably the case. Feel free to contribute and make this thing better in any way!
+jbaboval's Stable Diffusion WebUI for OneAPI - running in a Docker Container!
+
+If you have an Intel Xe Graphics Card (e.g. Intel Arc), then this container will allow you to use it for Stable Diffusion.
+
+This container uses the Torch backend with some special Intel Repos to make everything work. Support for OneAPI in Torch is still early-days and there are certainly some bugs and missing features (img2img crashes, no seed reproducibility) so keep that in mind. 
+
+If you have an Intel Card and are interested in using it to diffuse, follow the set-up steps below:
 
 ## Setup
-- Clone the repository and `cd` into the new folder
-- run `docker compose up download` to setup the folders
-- run `docker compose up webui` to build and bring up the container
-- open the webui with `<ip of PC/server>:7860`
+- Clone this repository `git clone https://github.com/theunpleasantowl/stable-diffusion-docker-webui-intel.git` and `cd` into the new directory
+- run `docker-compose up download -d` to setup the directory
+- run `docker-compose up webui` to build and bring up the container
+- reach the webUI at `localhost:7860`
 
-## Credits
+## ENV Variables
+| Parameter | Function |
+| :----: | --- |
+| `-e 443` | Internal WebUI Port - If you want to change the native port  |
 
-- Major props to u/theshdude on Reddit for writing detailed instructions on how to set up ubuntu for Intel oneAPI and stable diffusion
+## Special Thanks
+
+- u/theshdude on Reddit for working with Intel Insiders to document setting up Torch for OneAPI
   - https://www.reddit.com/r/IntelArc/comments/11an12q/stable_diffusion_web_ui_for_intel_arc/
 - jbaboval on github for his fork of stable-diffusion-webui for Intel oneAPI
   - https://github.com/jbaboval/stable-diffusion-webui/tree/oneapi
-- AbdBarho for the original stable-diffusion-webui-docker, I took and modified his download container for my own purposes
+- AbdBarho for stable-diffusion-webui-docker that this work is based on
   - https://github.com/AbdBarho/stable-diffusion-webui-docker
-- AUTOMATIC1111 for all his work on stable-diffusion-webui in general!
+- AUTOMATIC1111 for their Stable Diffusion WebUI 
   - https://github.com/AUTOMATIC1111/stable-diffusion-webui
