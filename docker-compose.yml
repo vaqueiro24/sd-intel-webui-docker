@@ -9,14 +9,12 @@ services:
       - "./models:/stable-diffusion-webui/models"
       - "./extensions:/stable-diffusion-webui/extensions"
       - "./outputs:/stable-diffusion-webui/outputs"
-      - "./config:/config"
+      - "./config:/stable-diffusion-webui/config"
     devices:
       - /dev/dri/renderD128:/dev/dri/renderD128
       - /dev/dri/card0:/dev/dri/card0
     environment:
       - CLI_ARGS=--allow-code --enable-insecure-extension-access
-      - PUID=1000
-      - PGID=1000
     restart: unless-stopped
 
   download:
