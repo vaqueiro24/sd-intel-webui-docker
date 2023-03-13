@@ -24,13 +24,6 @@ RUN \
     libmfx1 \
     python3-pip
 
-# Set User Permissions
-#RUN addgroup --gid 1000 user
-#RUN useradd -ms /bin/bash user
-#USER user
-#WORKDIR /home/user
-#COPY start.sh ./
-
 # Create User Permissions
 ARG DOCKER_USER=default_user
 RUN useradd -m "$DOCKER_USER"
