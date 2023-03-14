@@ -17,7 +17,7 @@ set-up steps below:
 - Clone this repository and cd:
 
 ```
- git clone https://github.com/theunpleasantowl/stable-diffusion-docker-webui-intel.git
+ git clone https://github.com/gs1lv4/sd-intel-webui-docker.git
  cd stable-diffusion-docker-webui-intel
  docker-compose up download -d      # Required once to set up some models and directories
  docker-compose up webui            # Build the container and run the WebUI
