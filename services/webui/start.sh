@@ -2,4 +2,4 @@
 
 # Execute
 source /opt/intel/oneapi/setvars.sh
-python3 launch.py --use-intel-oneapi --listen --port ${WEBUI_PORT:=7860} ${CLI_ARGS}
+python3.10 launch.py --use-intel-oneapi --listen --port ${WEBUI_PORT:=7860} ${CLI_ARGS}
