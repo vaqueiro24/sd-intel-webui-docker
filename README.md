@@ -6,9 +6,16 @@ If you have an Intel Xe Graphics Card (e.g. Intel Arc), then this container
 will allow you to use it for Stable Diffusion.
 
 This container uses the Torch backend with some special Intel Repos to make
-everything work. Support for OneAPI in Torch is still early-days and there are
+everything work. ~~Support for OneAPI in Torch is still early-days and there are
 certainly some bugs and missing features (img2img crashes, no seed
-reproducibility) so keep that in mind.
+reproducibility) so keep that in mind.~~
+
+### UPDATE 6/13/2023:
+
+It seems like this is not the case anymore:
+- upscaling seems to be mostly fixed and actually usable. 
+- Seeds are *almost* reproducible, as in objects and people are in place but there may be slight color variations.
+- img2img was already working before and still works with this update
 
 If you have an Intel Card and are interested in using it to diffuse, follow the
 set-up steps below:
@@ -17,7 +24,7 @@ set-up steps below:
 - Clone this repository and cd:
 
 ```
- git clone https://github.com/gs1lv4/sd-intel-webui-docker.git
+ git clone https://github.com/vaqueiro24/sd-intel-webui-docker.git
  cd stable-diffusion-docker-webui-intel
  docker-compose up download -d      # Required once to set up some models and directories
  docker-compose up webui            # Build the container and run the WebUI
